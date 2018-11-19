@@ -37,8 +37,8 @@ constructor(){
         ["unknown", "unknown", "unknown", "unknown", "unknown", "unknown", "unknown", "unknown"],
         ["unknown", "diamond", "diamond", "unknown", "diamond", "unknown", "unknown", "unknown"],
         ["unknown", "", "unknown", "unknown", "unknown", "unknown", "unknown", "unknown"],
-        ["unknown", "unknown", "diamond", "unknown", "unknown", "", "arrow", "unknown"],
-        ["diamond", "arrow", "unknown", "", "unknown", "", "unknown", "unknown"],
+        ["arrow", "unknown", "diamond", "unknown", "unknown", "", "unknown", "unknown"],
+        ["unknown", "arrow", "diamond", "", "unknown", "", "unknown", "unknown"],
         ["unknown", "unknown", "unknown", "unknown", "diamond", "unknown", "unknown", "unknown"],
         ["unknown", "arrow", "diamond", "unknown", "unknown", "unknown", "", "unknown"]
     ],
@@ -81,20 +81,12 @@ onClick(rowIndex, colIndex,b) {
 completed() {
   if(this.diamondCount == 8){
       alert('completed');
-      this.saveGame();
+      
   }
   return true
 }
 
-saveGame(){
-    localStorage.setItem('saveGame',this.state);  
-}
 
-loadGame(){
-    this.state = localStorage.getItem('saveGame');
-    this.state = JSON.parse(this.state);
-    this.state.originaldata = this.state.originaldata;
-}
 
 updateHint(rowIndex,colIndex){
     if(this.state.data[rowIndex][colIndex] == "arrow"){
