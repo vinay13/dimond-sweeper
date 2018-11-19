@@ -1,0 +1,17 @@
+<div id="container">
+  <div class="col-sm-6">
+    <div class="messages"></div>
+    <table class="board" >
+      <tbody>
+        <tr  *ngFor="let a of state.originaldata, index as i">
+          <td *ngFor="let b of a, index as j" (click)="onClick(i,j,b)">
+            <div class="cell {{b}}"></div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3> points {{ this.state.points }}</h3>
+  <button (click)="loadGame()">loadGame</button>
+</div>
